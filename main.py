@@ -1,7 +1,7 @@
 import bayes_filter
 import visualize
 import numpy as np
-import kalman_filter
+import change_state
 
 TRUE_X=5.  # the true state value
 PRIOR_MEAN=0.
@@ -32,7 +32,7 @@ def main():
     y_kalman.append(TRUE_X+eps[0])
     x_kalman=[]
     x_kalman.append(TRUE_X)
-    y_list, mean_kalman_lst, mean_kalman_t=kalman_filter.kalman_filter(x_kalman, idx, y_kalman, PRIOR_MEAN, p, EPS_MEAN, q, N, eps)
+    y_list, mean_kalman_lst, mean_kalman_t=change_state.kalman_filter(x_kalman, idx, y_kalman, PRIOR_MEAN, p, EPS_MEAN, q, N, eps)
 
     print("The final bayes mean is: {}".format(mean_t))
     print(mean_lst)
